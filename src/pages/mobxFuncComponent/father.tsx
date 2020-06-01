@@ -2,9 +2,7 @@ import React, { useContext, lazy, Suspense } from 'react'
 import { Button } from 'antd'
 import RootStore from '../../store/mobxfunc/index'
 // import EditTable from './editEdit'
-const EditTable = lazy(() =>
-  import(/* webpackChunkName: "edittable" */ './editEdit')
-)
+const EditTable = lazy(() => import(/* webpackChunkName: "edittable" */ './editEdit'))
 
 const Father = () => {
   const { okrStore } = useContext(RootStore)

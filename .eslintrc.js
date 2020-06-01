@@ -6,6 +6,7 @@ module.exports = {
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
   ],
+  plugins: ['@typescript-eslint', 'react', 'jsx-control-statements', 'prettier'],
   parserOptions: {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
@@ -14,6 +15,7 @@ module.exports = {
     },
   },
   rules: {
+    'prettier/prettier': 1,
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',

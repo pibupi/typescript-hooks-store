@@ -17,9 +17,6 @@ export { useCountStore } from './count'
 const providers = [CountProvider]
 
 const Provider = (props: any) =>
-  providers.reduceRight(
-    (children, Parent) => <Parent>{children}</Parent>,
-    props.children
-  )
+  providers.reduceRight((children, Parent) => <Parent>{children}</Parent>, props.children)
 
 export default Provider

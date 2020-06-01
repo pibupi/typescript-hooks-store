@@ -31,10 +31,7 @@ import './index.less'
 import App from './App'
 import 'dayjs/locale/zh-cn'
 // 针对react16之后版本，若react本身报错的话需要使用该组件
-class ErrorBoundary extends Component<
-  ComponentProps<any>,
-  { hasError: boolean }
-> {
+class ErrorBoundary extends Component<ComponentProps<any>, { hasError: boolean }> {
   constructor(props: any) {
     super(props)
     this.state = { hasError: false }
