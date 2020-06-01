@@ -1,3 +1,12 @@
+## 该项目为 typescript 结合 react 搭建项目架构
+
+- 结合 hooks 中的 useReducer、useContex 实现 redux 的全局状态管理模版
+- mobx 和 class 实现 store
+- mobx 和 func 函数组件实现 store
+- redux 和 hooks 实现 sotre
+- 跨域处理
+- 路由传参多种方式
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
