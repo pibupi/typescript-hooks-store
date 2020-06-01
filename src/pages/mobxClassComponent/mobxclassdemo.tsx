@@ -13,7 +13,7 @@ interface IState {
 
 @inject('store')
 @observer
-class MobxDemo extends React.Component<{}, IState> {
+class MobxDemo extends React.Component<Record<string, unknown>, IState> {
   constructor(props: any) {
     super(props)
     this.state = {
@@ -21,8 +21,9 @@ class MobxDemo extends React.Component<{}, IState> {
       stores: props.store.storeA,
     }
   }
+
   handleTodo = (type: string): void => {
-    let { addTodo, deleteTodo, resetTodo } = this.state.stores
+    const { addTodo, deleteTodo, resetTodo } = this.state.stores
     switch (type) {
       case 'add':
         addTodo('一条新任务')
@@ -36,20 +37,23 @@ class MobxDemo extends React.Component<{}, IState> {
       default:
     }
   }
+
   componentDidMount() {
     console.log(this.props)
-    let { getNow } = this.state.stores
+    const { getNow } = this.state.stores
     this.setState({
       time: setInterval(() => {
         getNow()
       }),
     })
   }
+
   componentWillUnmount() {
     clearInterval(this.state.time)
   }
+
   render() {
-    let { todos, desc } = this.state.stores
+    const { todos, desc } = this.state.stores
     return (
       <div>
         <div>123</div>

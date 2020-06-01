@@ -37,13 +37,13 @@ const EditTable = observer((props: any) => {
     })
   }
   const deleRow = (index: number) => {
-    let copydata = JSON.parse(JSON.stringify(rowlist))
+    const copydata = JSON.parse(JSON.stringify(rowlist))
     RemoveValByIndex(copydata, index)
     okrStore.updaterowlist(copydata)
   }
   const saveRow = (id: number) => {
-    let copydata = JSON.parse(JSON.stringify(rowlist))
-    let index = rowlist.findIndex((item) => item.id === id)
+    const copydata = JSON.parse(JSON.stringify(rowlist))
+    const index = rowlist.findIndex((item) => item.id === id)
     let flag = false
     if (copydata[index].title === '') {
       copydata[index].titlevalid = true
@@ -67,19 +67,19 @@ const EditTable = observer((props: any) => {
     okrStore.updaterowlist(copydata)
   }
   const getContent = (value: string, index: number) => {
-    let copydata = JSON.parse(JSON.stringify(rowlist))
+    const copydata = JSON.parse(JSON.stringify(rowlist))
     copydata[index].content = value
     copydata[index].contentvalid = false
     okrStore.updaterowlist(copydata)
   }
   const getConname = (value: string, index: number) => {
-    let copydata = JSON.parse(JSON.stringify(rowlist))
+    const copydata = JSON.parse(JSON.stringify(rowlist))
     copydata[index].conname = value
     copydata[index].connamevalid = false
     okrStore.updaterowlist(copydata)
   }
   const getTitle = (value: string, index: number) => {
-    let copydata = JSON.parse(JSON.stringify(rowlist))
+    const copydata = JSON.parse(JSON.stringify(rowlist))
     copydata[index].title = value
     copydata[index].titlevalid = false
     okrStore.updaterowlist(copydata)

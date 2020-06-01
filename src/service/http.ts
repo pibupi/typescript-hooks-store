@@ -4,7 +4,7 @@ import { message } from 'antd'
 
 import baseUrls from '../config'
 
-type Request = (url: string, data?: object, baseUrl?: string) => Promise<any>
+type Request = (url: string, data?: Record<string, unknown>, baseUrl?: string) => Promise<any>
 
 interface HttpRequest {
   get?: Request

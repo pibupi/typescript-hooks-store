@@ -23,7 +23,7 @@ export default observable.object(
       this.rowlist = row
     },
     saveTable() {
-      let copydata = JSON.parse(JSON.stringify(this.rowlist))
+      const copydata = JSON.parse(JSON.stringify(this.rowlist))
       let flag = false
       copydata.forEach((item: any) => {
         if (item.title === '') {
@@ -57,7 +57,7 @@ export default observable.object(
       this.updaterowlist(copydata)
     },
     editall() {
-      let copydata = JSON.parse(JSON.stringify(this.rowlist))
+      const copydata = JSON.parse(JSON.stringify(this.rowlist))
       copydata.forEach((item: any, index: number) => {
         item.edit = true
       })

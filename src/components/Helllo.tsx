@@ -7,7 +7,7 @@ interface IProps {
   onMyClick: (num: number) => void
 }
 
-const Hello = ({ title, age, work, onMyClick }: IProps) => {
+const Hello = ({ title, age, work, onMyClick }: IProps): any => {
   const [count, setCount] = useState<number>(0)
   const increament = (num: number) => {
     setCount(count + num)
@@ -21,6 +21,7 @@ const Hello = ({ title, age, work, onMyClick }: IProps) => {
         {title}
         {age}
         {count}
+        {work}
       </p>
       <Button type="primary" onClick={() => increament(1)}>
         加1

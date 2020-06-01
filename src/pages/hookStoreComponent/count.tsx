@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import { useCountStore } from '../../store/hookStore'
 
-const Count = () => {
+const Count = (): JSX.Element => {
   const {
     count: { num },
   } = useCountStore()
-  useEffect(() => {}, [num])
+  useEffect(() => {
+    console.log(num)
+  }, [num])
   return (
     <div>
       <p>{num}</p>

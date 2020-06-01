@@ -10,7 +10,7 @@ interface Item {
   age: string
   address: string
 }
-const EditableRow: React.FC<EditableRowProps> = ({ index, ...props }) => {
+const EditableRow: React.FC<EditableRowProps> = ({ ...props }): any => {
   const [form] = Form.useForm()
   return (
     <Form form={form} component={false}>
@@ -27,7 +27,7 @@ interface EditableCellProps {
   children: React.ReactNode
   dataIndex: string
   record: any
-  handleSave: (record: any) => void
+  handleSave: (record: unknown) => void
 }
 const EditableCell: React.FC<EditableCellProps> = ({
   title,
@@ -37,7 +37,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
   record,
   handleSave,
   ...restProps
-}) => {
+}): JSX.Element => {
   const [editing, setEditing] = useState(false)
   const inputRef = useRef(null)
   const form = useContext(EditableContext)
@@ -48,7 +48,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
     }
   }, [editing])
 
-  const toggleEdit = () => {
+  const toggleEdit = (): void => {
     setEditing(!editing)
     form.setFieldsValue({ [dataIndex]: record[dataIndex] })
   }
@@ -100,10 +100,10 @@ const menu = (
     <Menu.Item>删除</Menu.Item>
   </Menu>
 )
-function callback(key: any) {
+function callback(key: string | string[]): void {
   console.log(key)
 }
-const genExtra = () => (
+const genExtra = (): React.ReactNode => (
   <div>
     <span className="table-operation">
       <span>权重 100%</span>
@@ -117,7 +117,7 @@ interface IState {
   dataSource: any
   count: number
 }
-class OkrTeam extends React.Component<{}, IState> {
+class OkrTeam extends React.Component<Record<string, unknown>, IState> {
   columns: (
     | {
         title: string
@@ -141,7 +141,8 @@ class OkrTeam extends React.Component<{}, IState> {
         editable?: undefined
       }
   )[]
-  constructor(props: any) {
+
+  constructor(props: Record<string, unknown>) {
     super(props)
     this.state = {
       dataSource: [
@@ -174,7 +175,7 @@ class OkrTeam extends React.Component<{}, IState> {
       {
         title: 'address',
         dataIndex: 'address',
-        render: () => {
+        render: (): JSX.Element => {
           return (
             <div style={{ width: 170 }}>
               <Progress percent={30} size="small" />
@@ -185,16 +186,17 @@ class OkrTeam extends React.Component<{}, IState> {
       {
         title: 'operation',
         dataIndex: 'operation',
-        render: () => <span>详情</span>,
+        render: (): JSX.Element => <span>详情</span>,
       },
     ]
   }
-  handleDelete = (key: any) => {
+
+  handleDelete = (key: string): void => {
     const dataSource = [...this.state.dataSource]
     this.setState({ dataSource: dataSource.filter((item) => item.key !== key) })
   }
 
-  handleAdd = () => {
+  handleAdd = (): void => {
     const { count, dataSource } = this.state
     const newData = {
       key: count,
@@ -208,7 +210,7 @@ class OkrTeam extends React.Component<{}, IState> {
     })
   }
 
-  handleSave = (row: any) => {
+  handleSave = (row: Record<string, unknown>): void => {
     const newData = [...this.state.dataSource]
     const index = newData.findIndex((item) => row.key === item.key)
     const item = newData[index]
@@ -218,6 +220,7 @@ class OkrTeam extends React.Component<{}, IState> {
     })
     this.setState({ dataSource: newData })
   }
+
   render() {
     const { dataSource } = this.state
     const components = {
@@ -226,13 +229,13 @@ class OkrTeam extends React.Component<{}, IState> {
         cell: EditableCell,
       },
     }
-    const columns = this.columns.map((col) => {
+    const columns = this.columns.map((col): any => {
       if (!col.editable) {
         return col
       }
       return {
         ...col,
-        onCell: (record: any) => ({
+        onCell: (record: any): any => ({
           record,
           editable: col.editable,
           dataIndex: col.dataIndex,
