@@ -1,6 +1,6 @@
 import React from 'react'
 import { useCountStore } from '../../store/hookStore'
-function Buttons() {
+function Buttons(): JSX.Element {
   const { dispatch } = useCountStore()
   return (
     <div>

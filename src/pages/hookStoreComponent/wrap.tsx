@@ -2,7 +2,7 @@ import React from 'react'
 import Count from './count'
 import Buttons from './button'
 
-const Wrap = (props: any) => {
+const Wrap = (): number => {
   return (
     <div>
       <Count />
